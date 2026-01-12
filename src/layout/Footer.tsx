@@ -25,20 +25,32 @@ const Footer = () => {
         backgroundPosition: "center",
         backgroundBlendMode: "multiply",
         backgroundRepeat: "no-repeat",
-        height: 400,
+        minHeight: { xs: 450, md: "auto" },
         width: "100%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        gap: 10,
+        gap: { xs: 5, sm: 7, md: 8 },
+        py: { xs: 6, md: 8 },
+        px: { xs: 2, sm: 5 },
       }}
     >
-      <Box sx={{ display: "flex", flexDirection: "row", gap: 15 }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: {xs:"column" ,sm:"column", md:"row" },
+          gap: { xs: 6, md: 8 },
+          width: "100%",
+          maxWidth: 1200,
+          justifyContent: "center",
+          alignItems: "flex-start",
+        }}
+      >
         {/* logo description social media handles */}
         <Box
           sx={{
-            width: 380,
+            width: "100%",
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "flex-start",
@@ -46,9 +58,22 @@ const Footer = () => {
             gap: 2,
           }}
         >
-          <Box component="img" src={logo} sx={{ height: 27, width: 75 }}></Box>
-          <Box sx={{display:"flex", flexDirection:"column", gap:2}}>
-            <Typography sx={{ color: "#ffffff4b", fontSize: 13 }}>
+          <Box
+            component="img"
+            src={logo}
+            sx={{ height: { xs: 24, sm: 27 }, width: { xs: 65, sm: 75 } }}
+          ></Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+              width: { xs: "100%", sm: "90%" },
+            }}
+          >
+            <Typography
+              sx={{ color: "#ffffff4b", fontSize: { xs: 12, sm: 13 } }}
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quis
               rerum beatae, labore blanditiis inventore architecto et ipsum
               nobis! Tempore tenetur, saepe ipsa voluptate porro consequatur
@@ -56,18 +81,24 @@ const Footer = () => {
               Ullam dolore iure ut quas, numquam temporibus quo, sint eius aut
               omnis accusantium!{" "}
             </Typography>
-            <Typography sx={{ color: "#ffffff4b", fontSize: 12 }}>Developed By <span style={{color: "#ffffffff", fontSize: 13, fontWeight:600 }}>©Suman Nandi</span></Typography>
+            <Typography
+              sx={{ color: "#ffffff4b", fontSize: { xs: 11, sm: 12 } }}
+            >
+              Developed By{" "}
+              <span
+                style={{ color: "#ffffffff", fontSize: 13, fontWeight: 600 }}
+              >
+                ©Suman Nandi
+              </span>
+            </Typography>
           </Box>
           <Box
             sx={{
-              width: 25,
-              textAlign: "center",
+              width: "auto",
               display: "flex",
-              justifyContent: "center",
+              justifyContent: "flex-start",
               alignItems: "center",
               gap: 1,
-              // border:"1px solid #fff",
-              px: 7,
             }}
           >
             <Box
@@ -95,8 +126,13 @@ const Footer = () => {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
-            gap: 5,
+            justifyContent: { xs: "space-between", md: "space-around" },
+            alignItems: "flex-start",
+            gap: { xs: 4, sm: 6 },
+            flexDirection: { xs: "column", sm: "row" },
+            width: "100%",
+            maxWidth: 1000,
+            mx: "auto",
           }}
         >
           {/* contact us */}
@@ -135,7 +171,7 @@ const Footer = () => {
                 />
                 <Typography
                   color="#ffffff4a"
-                  sx={{ textAlign: "center", fontSize: 14 }}
+                  sx={{ textAlign: "center", fontSize: { xs: 13, sm: 14 } }}
                 >
                   infofoodi@gmail.com
                 </Typography>
@@ -159,7 +195,7 @@ const Footer = () => {
                 />
                 <Typography
                   color="#ffffff4a"
-                  sx={{ textAlign: "center", fontSize: 14 }}
+                  sx={{ textAlign: "center", fontSize: { xs: 13, sm: 14 } }}
                 >
                   +917029112661
                 </Typography>
@@ -195,7 +231,7 @@ const Footer = () => {
                 <ListItemText>
                   <Typography
                     color="#ffffff4a"
-                    sx={{ textAlign: "center", fontSize: 14 }}
+                    sx={{ textAlign: "center", fontSize: { xs: 13, sm: 14 } }}
                   >
                     about us
                   </Typography>
@@ -251,15 +287,28 @@ const Footer = () => {
               </Typography>
             </Box>
             <Box>
-              <Box sx={{ width: 190, py: 2 }}>
-                <Typography color="#ffffff4a" sx={{ fontSize: 14 }}>
+              <Box sx={{ width: { xs: "100%", sm: 190 }, py: 2 }}>
+                <Typography
+                  color="#ffffff4a"
+                  sx={{ fontSize: { xs: 13, sm: 14 } }}
+                >
                   543 Country Club Ave, NC 27587, London, UK
                 </Typography>
-                <Typography color="#ffffff4a" sx={{ fontSize: 14 }}>
+                <Typography
+                  color="#ffffff4a"
+                  sx={{ fontSize: { xs: 13, sm: 14 } }}
+                >
                   +1257 6541120
                 </Typography>
               </Box>
-              <Box sx={{ display: "flex", gap: 1 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 1,
+                  flexWrap: "wrap",
+                  justifyContent: { xs: "flex-start", sm: "flex-start" },
+                }}
+              >
                 <Box
                   component="img"
                   src={masterCard}
@@ -288,22 +337,39 @@ const Footer = () => {
       <Box
         sx={{
           borderTop: "2px dashed #ffffff1d",
-          width: "70%",
+          width: "100%",
+          maxWidth: 1000,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          flexDirection: { xs: "column", sm: "row" },
+          gap: { xs: 2, sm: 0 },
+          pt: { xs: 3, sm: 0 },
         }}
       >
         <Box>
-          <Typography sx={{ color: "#797b78", fontSize: 14 }}>
+          <Typography
+            sx={{
+              color: "#797b78",
+              fontSize: { xs: 12, sm: 14 },
+              textAlign: { xs: "center", sm: "left" },
+            }}
+          >
             ©2024 APR,All rights reserved
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", gap: 1 }}>
-          <Typography sx={{ color: "#797b78", fontSize: 14 }}>
+        <Box
+          sx={{
+            display: "flex",
+            gap: { xs: 2, sm: 1 },
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "center",
+          }}
+        >
+          <Typography sx={{ color: "#797b78", fontSize: { xs: 12, sm: 14 } }}>
             Privacy Policy
           </Typography>
-          <Typography sx={{ color: "#797b78", fontSize: 14 }}>
+          <Typography sx={{ color: "#797b78", fontSize: { xs: 12, sm: 14 } }}>
             Terms of Use
           </Typography>
         </Box>

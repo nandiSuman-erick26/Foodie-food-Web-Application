@@ -16,7 +16,7 @@ const OurBlogs = () => {
   const { blogState } = context;
   console.log("BLOG STATE", blogState);
   return (
-    <Box>
+    <Box sx={{ maxWidth: "100vw", overflowX: "hidden" }}>
       <CommonHeader />
       <Box
         sx={{
@@ -25,6 +25,8 @@ const OurBlogs = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+          width: "100%",
+          overflow: "hidden",
         }}
       >
         <Box
@@ -33,25 +35,30 @@ const OurBlogs = () => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            width: "60%",
-            padding: 5,
-            gap: 4,
+            width: { xs: "90%", sm: "80%", md: "70%", lg: "60%" },
+            padding: { xs: 3, sm: 4, md: 5 },
+            gap: { xs: 2, sm: 3, md: 4 },
           }}
         >
           <Typography
             variant="h4"
             sx={{
               color: "#fff",
-              fontSize: 28,
+              fontSize: { xs: 22, sm: 24, md: 28 },
               fontWeight: 600,
               textTransform: "capitalize",
+              textAlign: "center",
             }}
           >
             latest news & blogs
           </Typography>
           <Typography
             variant="body2"
-            sx={{ color: "#ffffff65", textAlign: "center" }}
+            sx={{
+              color: "#ffffff65",
+              textAlign: "center",
+              fontSize: { xs: 13, sm: 14, md: 16 },
+            }}
           >
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae quas
             natus suscipit similique atque aliquam ex! Accusantium vero eligendi
@@ -62,9 +69,16 @@ const OurBlogs = () => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr 1fr",
-            gap: 2,
-            padding: 6,
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+            },
+            gap: { xs: 2, sm: 2.5, md: 3 },
+            padding: { xs: 2, sm: 3, md: 4, lg: 6 },
+            width: "100%",
+            maxWidth: 1400,
+            justifyItems: "center",
           }}
         >
           {blogState?.blog?.map((blog, idx) => (

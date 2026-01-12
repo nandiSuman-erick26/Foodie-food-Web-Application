@@ -94,12 +94,14 @@ const Login = ({
         <Box
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
             justifyContent: "center",
             alignItems: "center",
-            // padding: 3,
             bgcolor: "#182f31",
             borderRadius: 5,
-            gap: 3,
+            gap: { xs: 2, sm: 3 },
+            p: { xs: 1, sm: 2 },
+            position: "relative",
           }}
         >
           <Box
@@ -109,16 +111,18 @@ const Login = ({
               color: "#d68240",
               cursor: "pointer",
               position: "absolute",
-              right: "5%",
-              top: 10,
+              right: { xs: 10, sm: 15, md: "5%" },
+              top: { xs: -20, sm: 10 },
               ":hover": { bgcolor: "#fd730aff", color: "#121a1d" },
-              transition: "color 0.3s ease",
+              transition: "all 0.3s ease",
               p: 0.7,
               borderRadius: 3,
               bgcolor: "#121a13",
               border: "none",
-              fontSize: 12,
+              fontSize: 10,
               fontWeight: 600,
+              zIndex: 11,
+              display:"none"
             }}
           >
             ADMIN LOGIN
@@ -126,9 +130,18 @@ const Login = ({
           <Box
             component="img"
             src={loginImage}
-            sx={{ width: 250, height: 300, borderRadius: 3 }}
-          ></Box>
-          <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+            sx={{
+              width: { xs: "100%", sm: 250 },
+              height: { xs: 150, sm: 300 },
+              borderRadius: 3,
+              display: { xs: "none", sm: "block" },
+            }}
+          />
+          <Box
+            component="form"
+            onSubmit={handleSubmit(onSubmit)}
+            sx={{ width: "100%", maxWidth: 350 }}
+          >
             {/* { input feilds } */}
             <Typography sx={{ color: "#fff", fontWeight: 600, p: 1 }}>
               Your Name:
@@ -270,9 +283,9 @@ const Login = ({
           sx={{
             color: "#fff",
             fontSize: 12,
-            position: "absolute",
-            left: "10%",
-            bottom: 10,
+            position: "static",
+            textAlign: "center",
+            pb: 2,
           }}
         >
           Didn't register yet?{" "}

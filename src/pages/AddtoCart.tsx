@@ -60,23 +60,28 @@ const AddtoCart = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+          width: "100%",
         }}
       >
         <Box
           sx={{
             display: "flex",
-            gap: 2,
+            gap: { xs: 4, md: 6 },
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: { xs: "center", md: "flex-start" },
+            flexDirection: { xs: "column", md: "row" },
+            width: "100%",
+            maxWidth: 1400,
+            padding: { xs: 2, sm: 4, md: 6 },
           }}
         >
           <Box
             sx={{
-              width: 800,
+              width: { xs: "100%", md: "60%", lg: "65%" },
               display: "flex",
+              flexDirection: "column",
               gap: 2,
-              minHeight: "80vh",
-              p: 5,
+              minHeight: { md: "80vh" },
             }}
           >
             <Box
@@ -84,16 +89,17 @@ const AddtoCart = () => {
                 display: "flex",
                 flexDirection: "column",
                 gap: 2,
-                height: "50vh",
+                height: { xs: "auto", md: "60vh" },
+                maxHeight: { xs: "60vh", md: "none" },
                 overflowY: "auto",
                 "&::-webkit-scrollbar": { width: "5px" },
                 "&::-webkit-scrollbar-thumb": {
-                  backgroundColor: "transparent",
+                  backgroundColor: "#ffffff10",
                   borderRadius: "10px",
                 },
-                padding: 3,
+                padding: { xs: 2, sm: 3 },
                 borderRadius: 5,
-                width: 600,
+                width: "100%",
                 alignItems: "center",
                 boxShadow: "inset 1px 2px 10px #032932ff",
               }}
@@ -127,16 +133,17 @@ const AddtoCart = () => {
                     sx={{
                       bgcolor: "#2226288d",
                       borderRadius: 2,
-                      px: 4,
+                      px: { xs: 2, sm: 4 },
                       display: "flex",
-                      flexDirection: "row",
-                      width: "80%",
+                      flexDirection: { xs: "column", sm: "row" },
+                      width: { xs: "95%", sm: "100%", md: "90%" },
                       ":hover": {
                         border: "1px solid #d68240",
                       },
                       position: "relative",
-                      py: 1,
-                      gap: 3,
+                      py: 2,
+                      gap: { xs: 2, sm: 3 },
+                      alignItems: { xs: "center", sm: "flex-start" },
                     }}
                   >
                     {/* Product Image */}
@@ -145,34 +152,37 @@ const AddtoCart = () => {
                         src={item?.product_image}
                         alt="product"
                         sx={{
-                          height: 100,
-                          width: 120,
+                          height: { xs: 80, sm: 100 },
+                          width: { xs: 100, sm: 120 },
                           borderRadius: 1,
-                          // flexShrink: 0,
                         }}
                         variant="rounded"
                       />
                     </Box>
                     {/* Product detail with increase decrease button */}
-                    <Box sx={{ width: "100%" }}>
+                    <Box
+                      sx={{
+                        width: "100%",
+                        textAlign: { xs: "center", sm: "left" },
+                      }}
+                    >
                       <Box
                         sx={{
                           display: "flex",
-                          flexDirection: "row",
+                          flexDirection: { xs: "column", sm: "row" },
                           justifyContent: "space-between",
-                          width: "90%",
-                          // padding: 2,
+                          width: "100%",
+                          alignItems: { xs: "center", sm: "flex-start" },
+                          gap: 1,
                         }}
                       >
                         <Typography
                           sx={{
                             color: "#fff",
-                            fontSize: { xs: 13, md: 16 },
+                            fontSize: { xs: 14, md: 16 },
                             fontWeight: 600,
-                            mb: { xs: 0, md: 0.5 },
                             textTransform: "uppercase",
                             overflow: "hidden",
-                            // textOverflow: "ellipsis",
                             whiteSpace: "nowrap",
                           }}
                         >
@@ -188,9 +198,18 @@ const AddtoCart = () => {
                           {item?.product_price}
                         </Typography>
                       </Box>
-                      <Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: { xs: "center", sm: "flex-start" },
+                        }}
+                      >
                         <Typography
-                          sx={{ color: "#707070ff", fontSize: 12, width: 250 }}
+                          sx={{
+                            color: "#707070ff",
+                            fontSize: 12,
+                            maxWidth: 300,
+                          }}
                         >
                           Lorem ipsum dolor sit amet consectetur adipisicing
                           elit. Cupiditate officiis.
@@ -205,6 +224,8 @@ const AddtoCart = () => {
                           display: "flex",
                           justifyContent: "space-evenly",
                           alignItems: "center",
+                          mt: 1,
+                          mx: { xs: "auto", sm: 0 },
                         }}
                       >
                         <Box
@@ -263,13 +284,11 @@ const AddtoCart = () => {
           <Box
             sx={{
               display: "flex",
-              width: "100%",
-              height: "80vh",
-              // borderRadius: 5,
+              width: { xs: "100%", md: "40%", lg: "35%" },
+              maxWidth: 500,
+              minHeight: { md: "80vh" },
               flexDirection: "column",
               gap: 2,
-              // border: "1px solid #fff",
-              // bgcolor: "#c1c1c1ff",
             }}
           >
             <Box
@@ -356,11 +375,9 @@ const AddtoCart = () => {
               sx={{
                 display: "flex",
                 width: "100%",
-                height: "80vh",
                 borderRadius: 5,
                 flexDirection: "column",
                 gap: 2,
-
                 p: 1,
               }}
             >

@@ -1,4 +1,3 @@
-// import React from 'react'
 import {
   Avatar,
   Box,
@@ -86,7 +85,6 @@ const chef = [
   },
 ];
 const colors = ["#FFB632", "#F855CA", "#EF7C6A"];
-// const plusColor = "#ffb632"
 const testimonials = [
   {
     name: "jerome bell",
@@ -113,6 +111,7 @@ const testimonials = [
     rating: 3,
   },
 ];
+
 const Home = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -132,11 +131,11 @@ const Home = () => {
     }
   };
   return (
-    <Box>
+    <Box sx={{ width: "100%", overflowX: "hidden" }}>
       {/* #banner section */}
       <Box
         sx={{
-          height: 900,
+          minHeight: { xs: 520, sm: 620, md: 720, lg: 900 },
           width: "100%",
           bgcolor: "#121a1d93",
           backgroundImage: `url(${homeTop})`,
@@ -148,7 +147,9 @@ const Home = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          gap: 3,
+          gap: { xs: 2, sm: 3 },
+          px: { xs: 2, sm: 4, md: 0 },
+          textAlign: "center",
         }}
       >
         <Box
@@ -164,7 +165,7 @@ const Home = () => {
                 key={u}
                 variant="body2"
                 sx={{
-                  fontSize: 16,
+                  fontSize: { xs: 12, sm: 14, md: 16 },
                   textAlign: "center",
                   color: "#ffffff",
                   textTransform: "uppercase",
@@ -177,7 +178,7 @@ const Home = () => {
             <Typography
               variant="body2"
               sx={{
-                fontSize: 16,
+                fontSize: { xs: 12, sm: 14, md: 16 },
                 textAlign: "center",
                 color: "#ffffff",
                 textTransform: "uppercase",
@@ -191,11 +192,11 @@ const Home = () => {
           <Typography
             variant="h1"
             sx={{
-              fontSize: 64,
+              fontSize: { xs: 26, sm: 36, md: 48, lg: 64 },
               textAlign: "center",
               textTransform: "uppercase",
               color: "#ffffffd2",
-              lineHeight: "74px",
+              lineHeight: { xs: "32px", sm: "44px", md: "60px", lg: "74px" },
               fontWeight: 600,
             }}
           >
@@ -207,7 +208,12 @@ const Home = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: 2,
+            gap: { xs: 1.5, sm: 2 },
+            flexWrap: "wrap",
+            mt: { xs: 2, sm: 3 },
+            width: "100%",
+            maxWidth: "600px",
+            mx: "auto",
           }}
         >
           <Button
@@ -216,8 +222,10 @@ const Home = () => {
               color: "#fff",
               textTransform: "uppercase",
               border: "1px solid #fff",
-              py: 1,
+              py: { xs: 0.8, sm: 1 },
+              px: { xs: 2, sm: 3 },
               borderRadius: 2,
+              fontSize: { xs: 10, sm: 13 },
               ":hover": {
                 bgcolor: "#ffffffff",
                 color: "#000000ff",
@@ -233,6 +241,8 @@ const Home = () => {
               color: "#fff",
               textTransform: "uppercase",
               ":hover": { border: "1px solid #fff", color: "#fff" },
+              fontSize: { xs: 10, sm: 13 },
+              py: { xs: 0.8, sm: 1 },
             }}
             onClick={() => navigate("/reservation")}
           >
@@ -242,36 +252,45 @@ const Home = () => {
       </Box>
 
       {/* about us section */}
-
       <Box
         sx={{
           bgcolor: "#121a1d",
-          height: 900,
           width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          gap: 15,
+          gap: { xs: 8, md: 12 },
+          py: { xs: 6, md: 10 },
+          px: { xs: 4, sm: 4 },
         }}
       >
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: { md: "space-between", xs: "center" },
             alignItems: "center",
-            gap: 35,
+            gap: { xs: 4, md: 10 },
+            flexDirection: { xs: "column-reverse", md: "row" },
+            width: "100%",
+            // maxWidth: 1200,
           }}
         >
           <Box
             sx={{
-              width: 400,
+              width: { xs: "100%", md: 400 },
               display: "flex",
               flexDirection: "column",
               gap: 3,
             }}
           >
-            <Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: { xs: "center", md: "flex-start" },
+              }}
+            >
               <Typography
                 variant="body2"
                 sx={{
@@ -289,8 +308,9 @@ const Home = () => {
                   height: 2,
                   bgcolor: "#d68240",
                   borderRadius: 2,
+                  mt: 1,
                 }}
-              ></Box>
+              />
             </Box>
             <Box>
               <Typography
@@ -299,21 +319,34 @@ const Home = () => {
                   color: "#fff",
                   fontWeight: 600,
                   textTransform: "capitalize",
-                  fontSize: 28,
+                  fontSize: { xs: 20, sm: 24, md: 28 },
+                  textAlign: { xs: "center", md: "left" },
                 }}
               >
                 we invite you to visit our coffee house
               </Typography>
             </Box>
             <Box>
-              <Typography sx={{ color: "#acacacff" }}>
+              <Typography
+                sx={{
+                  color: "#acacacff",
+                  fontSize: { xs: 13, md: 14 },
+                  textAlign: { xs: "center", md: "left" },
+                  lineHeight: 1.6,
+                }}
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
                 quam numquam beatae a inventore. Eligendi suscipit debitis error
                 incidunt sint ipsum nobis molestias fuga quod et itaque, at
                 porro rem!
               </Typography>
             </Box>
-            <Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
+            >
               <Button
                 sx={{
                   borderRadius: 1,
@@ -329,7 +362,6 @@ const Home = () => {
                     textTransform: "uppercase",
                     fontSize: 11,
                     fontWeight: 500,
-                    ":hover": { fontWeight: 600, color: "#d68240" },
                   }}
                 >
                   read more
@@ -337,26 +369,36 @@ const Home = () => {
               </Button>
             </Box>
           </Box>
-          <Box>
+
+          <Box
+            sx={{
+              width: { xs: "90%", sm: "80%", md: 450 },
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <Box
               sx={{
-                width: 450,
+                width: "100%",
                 borderRadius: 10,
                 boxShadow: "0 8px 18px #070707ff",
+                overflow: "hidden",
               }}
             >
               <img
                 src={aboutus}
                 alt="aboutus"
                 style={{
-                  objectFit: "contain",
                   width: "100%",
-                  borderRadius: 10,
+                  display: "block",
+                  objectFit: "cover",
+                  height: "100%",
                 }}
               />
             </Box>
           </Box>
         </Box>
+
         {/* features section */}
         <Box
           sx={{
@@ -376,155 +418,22 @@ const Home = () => {
               gap: 2,
             }}
           >
-            <Box>
-              <Typography
-                sx={{
-                  color: "#fff",
-                  textTransform: "uppercase",
-                  textAlign: "center",
-                }}
-              >
-                features
-              </Typography>
-              <Box
-                sx={{
-                  width: 65,
-                  height: 2,
-                  bgcolor: "#d68240",
-                  borderRadius: 2,
-                  position: "relative",
-                  left: 10,
-                  top: 2,
-                }}
-              ></Box>
-            </Box>
-            <Typography
-              variant="h4"
-              sx={{
-                color: "#fff",
-                fontWeight: 600,
-                fontSize: 28,
-              }}
-            >
-              Why people choose us?
-            </Typography>
-            <Box sx={{ width: 800 }}>
-              <Typography sx={{ color: "#acacacff", textAlign: "center" }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-                iure deserunt dolore dolor minus reprehenderit rem soluta
-                placeat aliquid natus.
-              </Typography>
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: 8,
-            }}
-          >
-            <Box sx={{ width: 330, textAlign: "center" }}>
-              <Box>
-                <Utensils size={28} color="#fff" />
-              </Box>
-              <Box>
-                <Typography
-                  sx={{
-                    color: "#fff",
-                    textTransform: "uppercase",
-                    fontWeight: 600,
-                    fontSize: 14,
-                  }}
-                >
-                  menu for every taste
-                </Typography>
-              </Box>
-              <Box>
-                <Typography sx={{ color: "#acacacff" }}>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolor provident ipsum perspiciatis consequuntur laboriosam est
-                  nostrum eos beatae.
-                </Typography>
-              </Box>
-            </Box>
-            <Box sx={{ width: 330, textAlign: "center" }}>
-              <Box>
-                <Bean size={28} color="#fff" />
-              </Box>
-              <Box>
-                <Typography
-                  sx={{
-                    color: "#fff",
-                    textTransform: "uppercase",
-                    fontWeight: 600,
-                    fontSize: 14,
-                  }}
-                >
-                  always quality beans
-                </Typography>
-              </Box>
-              <Box>
-                <Typography sx={{ color: "#acacacff" }}>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolor provident ipsum perspiciatis consequuntur laboriosam est
-                  nostrum eos beatae.
-                </Typography>
-              </Box>
-            </Box>
-            <Box sx={{ width: 330, textAlign: "center" }}>
-              <Box>
-                <ChefHat size={28} color="#fff" />
-              </Box>
-              <Box>
-                <Typography
-                  sx={{
-                    color: "#fff",
-                    textTransform: "uppercase",
-                    fontWeight: 600,
-                    fontSize: 14,
-                  }}
-                >
-                  expeirenced barista
-                </Typography>
-              </Box>
-              <Box>
-                <Typography sx={{ color: "#acacacff" }}>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolor provident ipsum perspiciatis consequuntur laboriosam est
-                  nostrum eos beatae.
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-
-      {/* menu section */}
-      <Box
-        sx={{
-          bgcolor: "#121a1d",
-          height: 950,
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-          gap: 15,
-        }}
-      >
-        <Box>
-          <Box>
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
                 flexDirection: "column",
+                alignItems: "center",
                 gap: 2,
               }}
             >
-              <Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 1,
+                }}
+              >
                 <Typography
                   sx={{
                     color: "#fff",
@@ -532,33 +441,38 @@ const Home = () => {
                     textAlign: "center",
                   }}
                 >
-                  popular menu
+                  features
                 </Typography>
                 <Box
                   sx={{
-                    width: 70,
+                    width: 65,
                     height: 2,
                     bgcolor: "#d68240",
                     borderRadius: 2,
-                    position: "relative",
-                    left: 30,
-                    top: 2,
                   }}
-                ></Box>
+                />
               </Box>
               <Typography
                 variant="h4"
                 sx={{
                   color: "#fff",
                   fontWeight: 600,
-                  fontSize: 28,
+                  fontSize: { xs: 22, md: 28 },
+                  textAlign: "center",
                   textTransform: "capitalize",
                 }}
               >
-                Explore our foods
+                Why people choose us?
               </Typography>
-              <Box sx={{ width: 800 }}>
-                <Typography sx={{ color: "#acacacff", textAlign: "center" }}>
+              <Box sx={{ width: "100%", maxWidth: 800, px: { xs: 2, md: 0 } }}>
+                <Typography
+                  sx={{
+                    color: "#acacacff",
+                    textAlign: "center",
+                    fontSize: { xs: 13, md: 14 },
+                    lineHeight: 1.6,
+                  }}
+                >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
                   iure deserunt dolore dolor minus reprehenderit rem soluta
                   placeat aliquid natus.
@@ -566,24 +480,190 @@ const Home = () => {
               </Box>
             </Box>
           </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "stretch",
+              gap: { xs: 3, md: 8 },
+              flexWrap: "wrap",
+              width: "100%",
+              maxWidth: 1200,
+            }}
+          >
+            <Box sx={{ width: { xs: "100%", sm: 330 }, textAlign: "center" }}>
+              <Box>
+                <Utensils size={28} color="#fff" />
+              </Box>
+              <Typography
+                sx={{
+                  color: "#fff",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                  fontSize: 14,
+                }}
+              >
+                menu for every taste
+              </Typography>
+              <Typography sx={{ color: "#acacacff" }}>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor
+                provident ipsum perspiciatis consequuntur laboriosam est nostrum
+                eos beatae.
+              </Typography>
+            </Box>
+
+            <Box sx={{ width: { xs: "100%", sm: 330 }, textAlign: "center" }}>
+              <Box>
+                <Bean size={28} color="#fff" />
+              </Box>
+              <Typography
+                sx={{
+                  color: "#fff",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                  fontSize: 14,
+                }}
+              >
+                always quality beans
+              </Typography>
+              <Typography sx={{ color: "#acacacff" }}>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor
+                provident ipsum perspiciatis consequuntur laboriosam est nostrum
+                eos beatae.
+              </Typography>
+            </Box>
+
+            <Box sx={{ width: { xs: "100%", sm: 330 }, textAlign: "center" }}>
+              <Box>
+                <ChefHat size={28} color="#fff" />
+              </Box>
+              <Typography
+                sx={{
+                  color: "#fff",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                  fontSize: 14,
+                }}
+              >
+                experienced barista
+              </Typography>
+              <Typography sx={{ color: "#acacacff" }}>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor
+                provident ipsum perspiciatis consequuntur laboriosam est nostrum
+                eos beatae.
+              </Typography>
+            </Box>
+          </Box>
         </Box>
+      </Box>
+
+      <Box
+        sx={{
+          bgcolor: "#121a1d",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          gap: { xs: 8, md: 15 },
+          py: { xs: 6, md: 10 },
+          px: { xs: 4, md: 4, lg: 0 },
+        }}
+      >
+        <Box sx={{ width: "100%", maxWidth: 1200 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              gap: 3,
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "#fff",
+                  textTransform: "uppercase",
+                  textAlign: "center",
+                }}
+              >
+                popular menu
+              </Typography>
+              <Box
+                sx={{
+                  width: 70,
+                  height: 2,
+                  bgcolor: "#d68240",
+                  borderRadius: 2,
+                }}
+              />
+            </Box>
+            <Typography
+              variant="h4"
+              sx={{
+                color: "#fff",
+                fontWeight: 600,
+                fontSize: { xs: 22, md: 28 },
+                textAlign: "center",
+                textTransform: "capitalize",
+              }}
+            >
+              Explore our foods
+            </Typography>
+            <Box sx={{ width: "100%", maxWidth: 800, px: { xs: 2, md: 0 } }}>
+              <Typography
+                sx={{
+                  color: "#acacacff",
+                  textAlign: "center",
+                  fontSize: { xs: 13, md: 14 },
+                  lineHeight: 1.6,
+                }}
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+                iure deserunt dolore dolor minus reprehenderit rem soluta
+                placeat aliquid natus.
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
+
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 5,
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+            },
+            gap: { xs: 3, sm: 4, md: 5 },
+            width: "100%",
+            maxWidth: 1200,
+            px: { xs: 2, sm: 4 },
           }}
         >
           {menu?.map((item, idx) => (
-            <FoodCard
+            <Box
               key={idx}
-              item={item}
-              addProductToCart={handleProductAdd}
-            />
+              sx={{
+                width: "100%",
+                display: "flex",
+              }}
+            >
+              <FoodCard item={item} addProductToCart={handleProductAdd} />
+            </Box>
           ))}
         </Box>
       </Box>
+
       {/* contact us section */}
       <Box
         sx={{
@@ -593,23 +673,26 @@ const Home = () => {
           backgroundPosition: "center",
           backgroundBlendMode: "multiply",
           backgroundRepeat: "no-repeat",
-          height: 650,
+          minHeight: { xs: 420, md: 650 },
           width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          // gap: 15,
+          py: { xs: 4, md: 0 },
+          px: { xs: 2, md: 4, lg: 0 },
         }}
       >
         <Box
           sx={{
+            width: "100%",
+            maxWidth: 1000,
+            px: { xs: 2 },
             display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: 4, md: 2 },
             justifyContent: "space-between",
             alignItems: "center",
-            flexDirection: "row",
-
-            width: "60%",
           }}
         >
           <Box
@@ -618,6 +701,7 @@ const Home = () => {
               justifyContent: "center",
               py: 1,
               flexDirection: "column",
+              width: { xs: "100%", md: "55%" },
             }}
           >
             <Box>
@@ -632,11 +716,9 @@ const Home = () => {
                   height: 2,
                   bgcolor: "#d68240",
                   borderRadius: 2,
-                  position: "relative",
-                  left: 0,
-                  top: 2,
+                  mt: 1,
                 }}
-              ></Box>
+              />
             </Box>
             <Box>
               <Typography
@@ -644,7 +726,7 @@ const Home = () => {
                 sx={{
                   color: "#fff",
                   textTransform: "capitalize",
-                  fontSize: 32,
+                  fontSize: { xs: 22, md: 32 },
                   fontWeight: 600,
                   py: 2,
                 }}
@@ -671,17 +753,19 @@ const Home = () => {
               </Button>
             </Box>
           </Box>
+
           <Box
             sx={{
               bgcolor: "#121a1d",
-              width: 300,
-              height: 290,
+              width: { xs: "100%", md: 300 },
+              height: { xs: "auto", md: 290 },
               borderRadius: 5,
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               flexDirection: "column",
-              gap: 7,
+              gap: 4,
+              py: { xs: 3, md: 0 },
             }}
           >
             <Box
@@ -738,17 +822,19 @@ const Home = () => {
           </Box>
         </Box>
       </Box>
+
       {/* chef & testimonials section */}
       <Box
         sx={{
           bgcolor: "#121a1d",
-          // height: "100%",
           width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          gap: 12,
+          gap: 8,
+          py: { xs: 6, md: 10 },
+          px: { xs: 2 },
         }}
       >
         {/* chef */}
@@ -759,7 +845,7 @@ const Home = () => {
             alignItems: "center",
             flexDirection: "column",
             gap: 2,
-            mt: 10,
+            mt: 2,
           }}
         >
           <Box>
@@ -778,52 +864,71 @@ const Home = () => {
                 height: 2,
                 bgcolor: "#d68240",
                 borderRadius: 2,
-                position: "relative",
-                left: 20,
-                top: 2,
+                mx: "auto",
+                mt: 1,
               }}
-            ></Box>
+            />
           </Box>
           <Typography
             variant="h4"
             sx={{
               color: "#fff",
               fontWeight: 600,
-              fontSize: 28,
-              // textTransform: "capitalize",
+              fontSize: { xs: 22, md: 28 },
+              textAlign: "center",
             }}
           >
             Meet our expert chef
           </Typography>
-          <Box sx={{ width: 800 }}>
-            <Typography sx={{ color: "#acacacff", textAlign: "center" }}>
+          <Box sx={{ width: "100%", maxWidth: 800 }}>
+            <Typography
+              sx={{
+                color: "#acacacff",
+                textAlign: "center",
+                px: { xs: 2, md: 0 },
+              }}
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iure
               deserunt dolore dolor minus reprehenderit rem soluta placeat
-              aliquid natus dolore dolor minus reprehenderit rem soluta placeat
               aliquid natus.
             </Typography>
           </Box>
         </Box>
+
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             gap: 2,
+            flexWrap: "wrap",
+            width: "100%",
+            maxWidth: 1200,
           }}
         >
           {chef?.map((item, idx) => (
-            <ChefCard key={idx} item={item} />
+            <Box
+              key={idx}
+              sx={{
+                width: { xs: "100%", sm: "48%", md: "23%" },
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <ChefCard item={item} />
+            </Box>
           ))}
         </Box>
-        {/* {testimonials} */}
+
+        {/* testimonials */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            gap: 8,
+            gap: 4,
+            width: "100%",
           }}
         >
           <Box
@@ -851,53 +956,68 @@ const Home = () => {
                   height: 2,
                   bgcolor: "#d68240",
                   borderRadius: 2,
-                  position: "relative",
-                  left: 20,
-                  top: 2,
+                  mx: "auto",
+                  mt: 1,
                 }}
-              ></Box>
+              />
             </Box>
             <Typography
               variant="h4"
               sx={{
                 color: "#fff",
                 fontWeight: 600,
-                fontSize: 28,
-                // textTransform: "capitalize",
+                fontSize: { xs: 22, md: 28 },
+                textAlign: "center",
               }}
             >
               What our clients say about us?
             </Typography>
-            <Box sx={{ width: 800 }}>
-              <Typography sx={{ color: "#acacacff", textAlign: "center" }}>
+            <Box sx={{ width: "100%", maxWidth: 800, px: { xs: 1, md: 0 } }}>
+              <Typography
+                sx={{
+                  color: "#acacacff",
+                  textAlign: "center",
+                  fontSize: { xs: 13, md: 14 },
+                  lineHeight: 1.6,
+                }}
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
                 iure deserunt dolore dolor minus reprehenderit rem soluta
-                placeat aliquid natus dolore dolor minus reprehenderit rem
-                soluta placeat aliquid natus.
+                placeat aliquid natus.
               </Typography>
             </Box>
           </Box>
+
           <Box
             sx={{
               display: "flex",
               justifyContent: "center",
-              alignItems: "center",
-              bgcolor: "#121a1d",
+              alignItems: "flex-start",
               gap: 2,
+              flexWrap: "wrap",
+              width: "100%",
+              px: { xs: 2, md: 0 },
             }}
           >
             {testimonials?.map((item, idx) => {
               const color = colors[idx % colors.length];
               return (
-                <Box key={idx} sx={{ width: 300, height: 250 }}>
+                <Box
+                  key={idx}
+                  sx={{
+                    width: { xs: "100%", sm: "48%", md: 300 },
+                    height: { xs: "auto", minHeight: 250 },
+                    mb: { xs: 2, sm: 0 },
+                  }}
+                >
                   <Box
                     sx={{
-                      height: 120,
-                      // border: "1px solid #fff",
+                      height: "auto",
+                      minHeight: 120,
                       bgcolor: "#192529ff",
                       pt: 3,
                       pl: 2,
-                      pb: 6,
+                      pb: { xs: 8, md: 6 },
                       borderTopRightRadius: 10,
                       borderTopLeftRadius: 10,
                       borderBottomRightRadius: 10,
@@ -934,8 +1054,6 @@ const Home = () => {
                       <Box
                         sx={{
                           bgcolor: "#121a1d",
-                          borderBottomLeftRadius: 0,
-                          borderBottomRightRadius: 0,
                           borderTopRightRadius: 20,
                           zIndex: 10,
                           display: "flex",
@@ -951,11 +1069,7 @@ const Home = () => {
                         <Avatar
                           src={item.avater}
                           alt={item.name}
-                          sx={{
-                            width: 38,
-                            height: 38,
-                            // border: "1px solid #fff",
-                          }}
+                          sx={{ width: 38, height: 38 }}
                         />
                         <Box sx={{ px: 3 }}>
                           <Typography
@@ -979,32 +1093,32 @@ const Home = () => {
             })}
           </Box>
         </Box>
-        <Box sx={{ borderTop: "1px dashed #ffffff2d", width: "80%", mt: -8 }}>
+
+        <Box
+          sx={{
+            borderTop: "1px dashed #ffffff2d",
+            width: "100%",
+            maxWidth: 1000,
+            mt: { xs: 4, md: -2 },
+            px: { xs: 2, md: 0 },
+          }}
+        >
           <Box
             sx={{
-              height: 100,
+              minHeight: 100,
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-evenly",
+              flexWrap: "wrap",
+              gap: { xs: 3, md: 2 },
+              py: { xs: 4, md: 0 },
             }}
           >
             {[
-              {
-                nbr: "1287",
-                des: "Visitors Daily",
-              },
-              {
-                nbr: "578",
-                des: "deliveries monthly",
-              },
-              {
-                nbr: "1440",
-                des: "positive feedback",
-              },
-              {
-                nbr: "40",
-                des: "awards and honors",
-              },
+              { nbr: "1287", des: "Visitors Daily" },
+              { nbr: "578", des: "deliveries monthly" },
+              { nbr: "1440", des: "positive feedback" },
+              { nbr: "40", des: "awards and honors" },
             ].map((item, idx) => {
               const showPlus = idx % 2 === 0 ? "#ffb632" : "#ffffff";
               return (
@@ -1015,6 +1129,7 @@ const Home = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     flexDirection: "column",
+                    minWidth: 120,
                   }}
                 >
                   <Typography
@@ -1039,187 +1154,218 @@ const Home = () => {
           </Box>
         </Box>
       </Box>
+
       {/* advertisement */}
       <Box
         sx={{
           bgcolor: "#121a1d",
           backgroundImage: `url(${advertisement})`,
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           backgroundPosition: "center",
-          // backgroundBlendMode: "multiply",
           backgroundRepeat: "no-repeat",
-          height: 600,
+          Height: { xs: 380, sm: 500 },
           width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          flexDirection: "column",
-          // gap: 15,
+          flexDirection: { xs: "column", md: "row" },
+          py: { xs: 4, md:1 },
+          position: "relative",
+          px: { xs: 2 },
+          overflow: "hidden",
         }}
       >
-        {/* {android and ios avalability} */}
         <Box
           sx={{
-            width: 470,
-            position: "absolute",
-            left: 80,
             display: "flex",
+            flexDirection: { xs: "column", md: "row" },
             justifyContent: "center",
             alignItems: "center",
-            gap: 2,
+            width: "100%",
+            maxWidth: 1400,
+            mx: "auto",
+            gap: { xs: 6, md: 10, lg: 20 },
+            px: { xs: 2, md: 5 },
           }}
         >
+          {/* android and ios availability */}
           <Box
             sx={{
               display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: 2,
               flexDirection: "column",
+              gap: 4,
+              alignItems: { xs: "center", md: "flex-start" },
+              zIndex: 10,
+              width: { xs: "100%", md: "auto" },
             }}
           >
-            <Box sx={{ width: 270 }}>
+            <Box
+              sx={{
+                width: "100%",
+                maxWidth: { xs: 300, md: 450 },
+                textAlign: { xs: "center", md: "left" },
+              }}
+            >
               <Typography
                 variant="h4"
                 sx={{
                   color: "#fff",
-                  fontWeight: 600,
+                  fontWeight: 800,
                   textTransform: "capitalize",
-                  fontSize: 33,
+                  fontSize: { xs: 24, md: 48, lg: 58 },
+                  lineHeight: 1.1,
+                  fontFamily: "inherit",
                 }}
               >
-                simple way to order your food
+                Simple Way To <br /> Order Your Food
               </Typography>
             </Box>
-            <Box sx={{ display: "flex", gap: 3 }}>
-              <Button sx={{ bgcolor: "#fff", height: 40, width: 150 }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    // gap: 1,
-                  }}
-                >
-                  <Box sx={{ display: "flex", justifyContent: "center" }}>
-                    {/* 1. Define the Gradient */}
-                    <svg width="0" height="0">
-                      <linearGradient
-                        id="google-gradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%"
-                      >
-                        <stop offset="2%" stopColor="#4285F4" /> {/* Blue */}
-                        <stop offset="35%" stopColor="#EA4335" /> {/* Red */}
-                        <stop offset="62%" stopColor="#FBBC05" /> {/* Yellow */}
-                        <stop offset="100%" stopColor="#34A853" /> {/* Green */}
-                      </linearGradient>
-                    </svg>
-
-                    {/* 2. Use the Gradient ID in the Icon */}
-                    <Play
-                      size={28}
-                      style={{ fill: "url(#google-gradient)", stroke: "none" }}
-                    />
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <Typography sx={{ color: "#000", fontSize: 10 }}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                flexWrap: "wrap",
+                justifyContent: { xs: "center", md: "flex-start" },
+              }}
+            >
+              <Button
+                sx={{
+                  bgcolor: "#fff",
+                  height: 55,
+                  minWidth: 180,
+                  px: 2,
+                  "&:hover": { bgcolor: "#f0f0f0" },
+                  borderRadius: 2,
+                }}
+              >
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <svg width="0" height="0">
+                    <linearGradient
+                      id="google-gradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="2%" stopColor="#4285F4" />
+                      <stop offset="35%" stopColor="#EA4335" />
+                      <stop offset="62%" stopColor="#FBBC05" />
+                      <stop offset="100%" stopColor="#34A853" />
+                    </linearGradient>
+                  </svg>
+                  <Play
+                    size={30}
+                    style={{ fill: "url(#google-gradient)", stroke: "none" }}
+                  />
+                  <Box sx={{ textAlign: "left", lineHeight: 1.1 }}>
+                    <Typography
+                      sx={{
+                        color: "#000",
+                        fontSize: 10,
+                        textTransform: "uppercase",
+                        fontWeight: 500,
+                      }}
+                    >
                       Get it on
                     </Typography>
                     <Typography
                       sx={{
                         color: "#000",
-                        fontSize: 14,
-                        fontWeight: 800,
+                        fontSize: 17,
+                        fontWeight: 900,
                         textTransform: "capitalize",
                       }}
                     >
-                      google play
+                      Google Play
                     </Typography>
                   </Box>
                 </Box>
               </Button>
-              <Button sx={{ bgcolor: "#fff", height: 40, width: 150 }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    // gap: 1,
-                  }}
-                >
-                  <Box sx={{ display: "flex", justifyContent: "center" }}>
-                    <AppleIcon fill="#000" color="#000" />
-                    <Box
+
+              <Button
+                sx={{
+                  bgcolor: "#fff",
+                  height: 55,
+                  minWidth: 180,
+                  px: 2,
+                  "&:hover": { bgcolor: "#f0f0f0" },
+                  borderRadius: 2,
+                }}
+              >
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <AppleIcon fill="#000" color="#000" size={30} />
+                  <Box sx={{ textAlign: "left", lineHeight: 1.1 }}>
+                    <Typography
                       sx={{
-                        bgcolor: "#ffffffff",
-                        borderRadius: 99,
-                        height: 10,
-                        width: 10,
-                        position: "relative",
-                        right: 8,
-                        bottom: -8,
+                        color: "#000",
+                        fontSize: 10,
+                        textTransform: "uppercase",
+                        fontWeight: 500,
                       }}
-                    ></Box>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <Typography sx={{ color: "#000", fontSize: 10 }}>
+                    >
                       Get it on
                     </Typography>
                     <Typography
                       sx={{
                         color: "#000",
-                        fontSize: 14,
-                        fontWeight: 800,
+                        fontSize: 17,
+                        fontWeight: 900,
                         textTransform: "capitalize",
                       }}
                     >
-                      apple store
+                      Apple Store
                     </Typography>
                   </Box>
                 </Box>
               </Button>
             </Box>
           </Box>
-        </Box>
-        <Box sx={{ display: "flex" }}>
-          <Box sx={{ position: "relative", top: -10, right: -280 }}>
-            <FoodOrderCard width={250} height={500} />
-          </Box>
-          <Box sx={{ position: "relative", top: 25, right: -300 }}>
-            <BurgerCard width={250} height={500} />
+
+          {/* decorative cards */}
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
+              width: 580,
+              height: 600,
+            }}
+          >
+            <Box
+              sx={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                zIndex: 2,
+              }}
+            >
+              <FoodOrderCard width={260} height={520} />
+            </Box>
+            <Box
+              sx={{
+                position: "absolute",
+                left: 280,
+                top: 50,
+                zIndex: 1,
+              }}
+            >
+              <BurgerCard width={260} height={520} />
+            </Box>
           </Box>
         </Box>
       </Box>
-      {/* newsteller */}
+
+      {/* newsletter */}
       <Box
         sx={{
           bgcolor: "#121a1d",
-          height: 550,
           width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          flexDirection: "column",
-          // gap: 15,
+          py: { xs: 6, md: 8 },
+          px: { xs: 2 },
         }}
       >
         <Box
@@ -1234,70 +1380,77 @@ const Home = () => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            width: "70%",
-            height: 420,
+            width: { xs: "100%", md: "70%" },
+            height: { xs: "auto", md: 420 },
             borderRadius: 5,
+            p: { xs: 3, md: 6 },
           }}
         >
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 5 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 4,
+              width: "100%",
+              alignItems: "center",
+            }}
+          >
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
                 flexDirection: "column",
                 gap: 2,
+                alignItems: "center",
               }}
             >
-              <Box>
-                <Typography
-                  sx={{
-                    color: "#fff",
-                    textTransform: "uppercase",
-                    textAlign: "center",
-                  }}
-                >
-                  Newsletter
-                </Typography>
-                <Box
-                  sx={{
-                    width: 70,
-                    height: 2,
-                    bgcolor: "#d68240",
-                    borderRadius: 2,
-                    position: "relative",
-                    left: 20,
-                    top: 2,
-                  }}
-                ></Box>
-              </Box>
+              <Typography
+                sx={{
+                  color: "#fff",
+                  textTransform: "uppercase",
+                  textAlign: "center",
+                }}
+              >
+                Newsletter
+              </Typography>
+              <Box
+                sx={{
+                  width: 70,
+                  height: 2,
+                  bgcolor: "#d68240",
+                  borderRadius: 2,
+                  mt: 1,
+                }}
+              />
               <Typography
                 variant="h4"
                 sx={{
                   color: "#fff",
                   fontWeight: 600,
-                  fontSize: 28,
+                  fontSize: { xs: 22, md: 28 },
                   textTransform: "capitalize",
+                  textAlign: "center",
                 }}
               >
                 Subscribe our newsletter
               </Typography>
-              <Box sx={{ width: 600 }}>
+              <Box sx={{ width: "100%", maxWidth: 600, px: { xs: 2, md: 0 } }}>
                 <Typography sx={{ color: "#acacacff", textAlign: "center" }}>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
                   iure deserunt dolore dolor em soluta placeat aliquid natus.
                 </Typography>
               </Box>
             </Box>
+
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: 2,
+                width: "100%",
               }}
             >
-              <Box sx={{ width: 640 }}>
+              <Box sx={{ width: { xs: "100%", md: 640 } }}>
                 <TextField
                   fullWidth
                   placeholder="Type Your Email Id"
@@ -1308,15 +1461,9 @@ const Home = () => {
                     "& .MuiOutlinedInput-root": {
                       color: "#fff",
                       borderRadius: "8px",
-                      "& fieldset": {
-                        border: "none",
-                      },
-                      "&:hover fieldset": {
-                        border: "none",
-                      },
-                      "&.Mui-focused fieldset": {
-                        border: "none",
-                      },
+                      "& fieldset": { border: "none" },
+                      "&:hover fieldset": { border: "none" },
+                      "&.Mui-focused fieldset": { border: "none" },
                     },
                     "& .MuiInputBase-input::placeholder": {
                       color: "#c5cfcfff",
@@ -1329,6 +1476,8 @@ const Home = () => {
                   sx={{
                     bgcolor: "#d68240",
                     ":hover": { bgcolor: "#01681bff" },
+                    py: 1,
+                    px: 2,
                   }}
                 >
                   <Typography

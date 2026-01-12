@@ -159,7 +159,9 @@ const Signup = ({
         },
       }}
     >
-      <Box component="img" src={logo} sx={{ width: 100 }} />
+      <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
+        <Box component="img" src={logo} sx={{ width: { xs: 80, sm: 100 } }} />
+      </Box>
       <Box>
         <Typography
           variant="h2"
@@ -199,7 +201,8 @@ const Signup = ({
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: 5,
+            gap: { xs: 2, sm: 5 },
+            flexDirection: { xs: "column", sm: "row" },
           }}
         >
           <Box
@@ -210,23 +213,27 @@ const Signup = ({
               justifyContent: "center",
               alignItems: "center",
               bgcolor: "#182f31",
-              padding: 2,
+              padding: { xs: 2, sm: 3 },
               borderRadius: 5,
               gap: 2,
-              // boxShadow: "0 2px 8px #14d89791",
+              flexDirection: { xs: "column", sm: "row" },
+              width: "100%",
             }}
           >
             {/* input feilds */}
             <Box
               sx={{
-                borderRight: "2px solid #121a1d",
+                borderRight: { xs: "none", sm: "2px solid #121a1d" },
+                borderBottom: { xs: "2px solid #121a1d", sm: "none" },
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
-                gap: 3,
-                width: 300,
-                padding: 2,
+                gap: 2,
+                width: "100%",
+                maxWidth: 350,
+                padding: { xs: 1, sm: 2 },
+                pb: { xs: 3, sm: 2 },
               }}
             >
               <TextField

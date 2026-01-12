@@ -15,7 +15,7 @@ import Group2 from "../assets/images/aboutus/Group2.jpg";
 import { BookUser, Heart, Plus, Smile, Timer } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 const AboutUs = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <Box>
       <CommonHeader />
@@ -33,15 +33,19 @@ const AboutUs = () => {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: "center",
             alignItems: "center",
-            gap: 15,
-            padding: 3,
+            flexDirection: { xs: "column", sm: "row" },
+            gap: { xs: 4, sm: 8, md: 10, lg: 15 },
+            padding: { xs: 2, sm: 4, md: 3 },
+            width: "100%",
+            maxWidth: 1400,
           }}
         >
           <Box
             sx={{
-              width: 450,
+              width: { xs: "100%", md: 450 },
+              maxWidth: 500,
             }}
           >
             <img
@@ -57,10 +61,12 @@ const AboutUs = () => {
           <Box>
             <Box
               sx={{
-                width: 400,
+                width: { xs: "100%", sm: 400 },
                 display: "flex",
                 flexDirection: "column",
-                gap: 3,
+                gap: { xs: 2, sm: 3 },
+                textAlign: { xs: "center", sm: "left" },
+                alignItems: { xs: "center", sm: "flex-start" },
               }}
             >
               <Box>
@@ -68,9 +74,10 @@ const AboutUs = () => {
                   variant="h4"
                   sx={{
                     color: "#fff",
-                    fontWeight: 600,
+                    fontWeight: 700,
                     textTransform: "capitalize",
-                    fontSize: 28,
+                    fontSize: { xs: 22, sm: 26, md: 28, lg: 32 },
+                    textAlign: { xs: "center", md: "left" },
                   }}
                 >
                   we provide healthy food for your family
@@ -87,7 +94,12 @@ const AboutUs = () => {
               </Box>
               <Box>
                 <Button
-                  sx={{ borderRadius: 1, bgcolor: "#d68240", padding: 1, ":hover":{bgcolor:"#813800ff"} }}
+                  sx={{
+                    borderRadius: 1,
+                    bgcolor: "#d68240",
+                    padding: 1,
+                    ":hover": { bgcolor: "#813800ff" },
+                  }}
                   onClick={() => navigate("/contact-us")}
                 >
                   <Typography
@@ -127,11 +139,20 @@ const AboutUs = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: 8,
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: 5, md: 8 },
+            px: { xs: 2, md: 4 },
+            width: "100%",
+            maxWidth: 1400,
           }}
         >
           <Box
-            sx={{ width: 330, textAlign: "center", display: "flex", gap: 2 }}
+            sx={{
+              width: { xs: "100%", md: 330 },
+              textAlign: "center",
+              display: "flex",
+              gap: 2,
+            }}
           >
             <Box>
               <BookUser size={38} color="#fff" />
@@ -158,7 +179,12 @@ const AboutUs = () => {
             </Box>
           </Box>
           <Box
-            sx={{ width: 330, textAlign: "center", display: "flex", gap: 2 }}
+            sx={{
+              width: { xs: "100%", md: 330 },
+              textAlign: "center",
+              display: "flex",
+              gap: 2,
+            }}
           >
             <Box>
               <Smile size={38} color="#fff" />
@@ -185,7 +211,12 @@ const AboutUs = () => {
             </Box>
           </Box>
           <Box
-            sx={{ width: 330, textAlign: "center", display: "flex", gap: 2 }}
+            sx={{
+              width: { xs: "100%", md: 330 },
+              textAlign: "center",
+              display: "flex",
+              gap: 2,
+            }}
           >
             <Box>
               <Timer size={38} color="#fff" />
@@ -226,14 +257,15 @@ const AboutUs = () => {
             variant="h4"
             sx={{
               color: "#fff",
-              fontWeight: 600,
-              fontSize: 24,
+              fontWeight: 700,
+              fontSize: { xs: 20, sm: 24 },
               textTransform: "capitalize",
+              textAlign: "center",
             }}
           >
             Frequently asked question
           </Typography>
-          <Box sx={{ width: 800 }}>
+          <Box sx={{ width: { xs: "90%", md: 800 } }}>
             <Typography
               sx={{ color: "#acacac8e", textAlign: "center", fontSize: 14 }}
             >
@@ -249,12 +281,16 @@ const AboutUs = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: 5,
+            flexDirection: { xs: "column", sm: "row" },
+            gap: { xs: 4, sm: 5, lg: 8 },
+            width: "100%",
+            maxWidth: 1400,
+            px: { xs: 2, sm: 4 },
           }}
         >
           <Box
             sx={{
-              width: 550,
+              width: { xs: "100%", md: 500, lg: 550 },
             }}
           >
             <img

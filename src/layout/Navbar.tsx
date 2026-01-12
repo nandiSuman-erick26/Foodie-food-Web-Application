@@ -1,7 +1,17 @@
 // import React from 'react'
 
-import { Avatar, Box, Button, IconButton, Typography } from "@mui/material";
-import { ShoppingBasket } from "lucide-react";
+import {
+  Avatar,
+  Box,
+  Button,
+  IconButton,
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
+import { ShoppingBasket, Menu as MenuIcon, X } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/images/navbar/Logo.png";
 import { useContext, useEffect, useState } from "react";
@@ -48,6 +58,7 @@ const Navbar = () => {
 
   const [open, setOpen] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -88,150 +99,270 @@ const Navbar = () => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-        height: 65,
-        width: { xs: "95%", sm: "90%", md: "85%", lg: "80%" },
-        maxWidth: 1384,
-        borderRadius: "20px",
-        position: "fixed",
-        top: 25,
-        left: "50%",
-        transform: "translateX(-50%)",
-        bgcolor: "#92929223",
-        backdropFilter: "blur(0)",
-        boxShadow: "0 2px 2px #e0e0e0",
-        border: "0.5px solid #ffffff75",
-        zIndex: 1000,
-      }}
-    >
+    <>
       <Box
-        component="img"
-        src={logo}
         sx={{
-          padding: 3,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          height: { xs: 55, sm: 65, md: 70 },
+          width: { xs: "90%", sm: "85%", lg: "80%" },
+          maxWidth: 1400,
+          borderRadius: { xs: "15px", md: "20px" },
+          position: "fixed",
+          top: { xs: 15, sm: 20, md: 25 },
+          left: "50%",
+          transform: "translateX(-50%)",
+          bgcolor: "#92929223",
+          backdropFilter: "blur(0)",
+          boxShadow: "0 2px 2px #e0e0e0",
+          border: "0.5px solid #ffffff75",
+          zIndex: 1000,
+          px: { xs: 2, sm: 3 },
         }}
-      ></Box>
-      {navbarArr?.map((item, idx) => {
-        const isActive = location.pathname === item.path;
-        return (
-          <Box
-            key={idx}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Box
-              sx={{
-                color: isActive ? "#d68240" : "#fff",
-                fontSize: 20,
-                cursor: "pointer",
-                ":hover": { fontSize: 22, color: "#d68240" },
-              }}
-              onClick={() => navigate(item?.path)}
-            >
-              {item?.name}
-            </Box>
-          </Box>
-        );
-      })}
-      <Box sx={{ padding: 3, display: "flex", gap: 1, alignItems: "center" }}>
+      >
+        {/* Hamburger Menu Icon - Mobile Only */}
         <IconButton
-          sx={{ color: "#fff", ":hover": { color: "#d68240" } }}
-          onClick={() => navigate("/my-cart")}
+          sx={{
+            display: { xs: "flex", lg: "none" },
+            color: "#fff",
+            p: 0.5,
+          }}
+          onClick={() => setMobileMenuOpen(true)}
         >
-          <ShoppingBasket size={20} />
-          {cartLength > 0 && authState.isAuthenticate === true && (
-            <Box
-              sx={{
-                position: "absolute",
-                top: -2,
-                right: 0,
-                bgcolor: "#121a1d",
-                color: "#d68240",
-                borderRadius: "50%",
-                width: { xs: 12, md: 15 },
-                height: { xs: 12, md: 15 },
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: { xs: 10, md: 11 },
-                fontWeight: 700,
-                border: "1px solid #d68240",
-              }}
-            >
-              {cartLength}
-            </Box>
-          )}
+          <MenuIcon size={24} />
         </IconButton>
-        <Box>
-          {authState.isAuthenticate ? (
-            authState?.user?.map((u: any) => (
-              <Avatar key={u} src={u?.image} sx={{ height: 30, width: 30 }} />
-            ))
-          ) : (
-            <Avatar sx={{ height: 30, width: 30 }} />
-          )}
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box
+            component="img"
+            src={logo}
+            onClick={() => navigate("/")}
+            sx={{
+              height: { xs: 25, sm: 35, md: 45 },
+              width: "auto",
+              cursor: "pointer",
+              flexShrink: 0,
+            }}
+          />
         </Box>
-        {authState?.isAuthenticate && role === "user" ? (
-          <Button
-            onClick={handleLogout}
+        <Box
+          sx={{
+            display: { xs: "none", lg: "flex" },
+            gap: { lg: 3, xl: 4 },
+          }}
+        >
+          {navbarArr?.map((item, idx) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Box
+                key={idx}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Box
+                  sx={{
+                    color: isActive ? "#d68240" : "#fff",
+                    fontSize: { lg: 16, xl: 20 },
+                    cursor: "pointer",
+                    ":hover": {
+                      fontSize: { lg: 18, xl: 22 },
+                      color: "#d68240",
+                    },
+                    transition: "all 0.2s ease",
+                  }}
+                  onClick={() => navigate(item?.path)}
+                >
+                  {item?.name}
+                </Box>
+              </Box>
+            );
+          })}
+        </Box>
+        <Box
+          sx={{
+            padding: { xs: 1, sm: 2, md: 3 },
+            display: "flex",
+            gap: { xs: 0.5, sm: 1 },
+            alignItems: "center",
+          }}
+        >
+          <IconButton
             sx={{
-              borderRadius: 2,
-              bgcolor: "#d68240",
-              ":hover": { bgcolor: "#ca330dff" },
+              color: "#fff",
+              ":hover": { color: "#d68240" },
+              p: { xs: 0.5, sm: 1 },
             }}
+            onClick={() => navigate("/my-cart")}
           >
-            <Typography
+            <ShoppingBasket size={20} />
+            {cartLength > 0 && authState.isAuthenticate === true && (
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: -2,
+                  right: 0,
+                  bgcolor: "#121a1d",
+                  color: "#d68240",
+                  borderRadius: "50%",
+                  width: { xs: 12, md: 15 },
+                  height: { xs: 12, md: 15 },
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: { xs: 10, md: 11 },
+                  fontWeight: 700,
+                  border: "1px solid #d68240",
+                }}
+              >
+                {cartLength}
+              </Box>
+            )}
+          </IconButton>
+          <Box sx={{ display: { xs: "block", sm: "block" } }}>
+            {authState.isAuthenticate ? (
+              authState?.user?.map((u: any) => (
+                <Avatar
+                  key={u}
+                  src={u?.image}
+                  sx={{ height: { xs: 25, sm: 30 }, width: { xs: 25, sm: 30 } }}
+                />
+              ))
+            ) : (
+              <Avatar
+                sx={{ height: { xs: 25, sm: 30 }, width: { xs: 25, sm: 30 } }}
+              />
+            )}
+          </Box>
+          {authState?.isAuthenticate && role === "user" ? (
+            <Button
+              onClick={handleLogout}
               sx={{
-                textTransform: "uppercase",
-                fontSize: 12,
-                fontWeight: 500,
-                color: "#fff",
+                borderRadius: 2,
+                bgcolor: "#d68240",
+                ":hover": { bgcolor: "#ca330dff" },
+                px: { xs: 1, sm: 2 },
+                py: { xs: 0.5, sm: 1 },
+                minWidth: { xs: 60, sm: 80 },
               }}
             >
-              logout
-            </Typography>
-          </Button>
-        ) : (
-          <Button
-            onClick={handleOpenDialog}
-            sx={{
-              borderRadius: 2,
-              bgcolor: "#d68240",
-              ":hover": { bgcolor: "#527a12ff" },
-              px: 2,
-            }}
-          >
-            <Typography
+              <Typography
+                sx={{
+                  textTransform: "uppercase",
+                  fontSize: { xs: 10, sm: 12 },
+                  fontWeight: 500,
+                  color: "#fff",
+                }}
+              >
+                logout
+              </Typography>
+            </Button>
+          ) : (
+            <Button
+              onClick={handleOpenDialog}
               sx={{
-                textTransform: "uppercase",
-                fontSize: 12,
-                fontWeight: 500,
-                color: "#fff",
+                borderRadius: 2,
+                bgcolor: "#d68240",
+                ":hover": { bgcolor: "#527a12ff" },
+                px: { xs: 1, sm: 2 },
+                py: { xs: 0.5, sm: 1 },
+                minWidth: { xs: 60, sm: 80 },
               }}
             >
-              login
-            </Typography>
-          </Button>
-        )}
-        <Login
-          open={open}
-          onClose={handleCloseDialog}
-          onSwitchSignup={handleSwitchToSignup}
-        />
-        <Signup
-          open={openSignup}
-          onClose={() => setOpenSignup(false)}
-          onSwitchLogin={handleSwitchToLogin}
-        />
+              <Typography
+                sx={{
+                  textTransform: "uppercase",
+                  fontSize: { xs: 10, sm: 12 },
+                  fontWeight: 500,
+                  color: "#fff",
+                }}
+              >
+                login
+              </Typography>
+            </Button>
+          )}
+          <Login
+            open={open}
+            onClose={handleCloseDialog}
+            onSwitchSignup={handleSwitchToSignup}
+          />
+          <Signup
+            open={openSignup}
+            onClose={() => setOpenSignup(false)}
+            onSwitchLogin={handleSwitchToLogin}
+          />
+        </Box>
       </Box>
-    </Box>
+
+      {/* Mobile Drawer Menu */}
+      <Drawer
+        anchor="left"
+        open={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        sx={{
+          display: { xs: "block", lg: "none" },
+          "& .MuiDrawer-paper": {
+            width: 250,
+            bgcolor: "#121a1d",
+            color: "#fff",
+          },
+        }}
+      >
+        <Box
+          sx={{
+            p: 2,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Box component="img" src={logo} sx={{ height: 24, width: 65 }} />
+          <IconButton
+            onClick={() => setMobileMenuOpen(false)}
+            sx={{ color: "#fff" }}
+          >
+            <X size={24} />
+          </IconButton>
+        </Box>
+        <List>
+          {navbarArr.map((item, idx) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <ListItem
+                key={idx}
+                onClick={() => {
+                  navigate(item.path);
+                  setMobileMenuOpen(false);
+                }}
+                sx={{
+                  cursor: "pointer",
+                  bgcolor: isActive ? "#d6824020" : "transparent",
+                  borderLeft: isActive
+                    ? "4px solid #d68240"
+                    : "4px solid transparent",
+                  ":hover": {
+                    bgcolor: "#d6824010",
+                  },
+                }}
+              >
+                <ListItemText
+                  primary={item.name}
+                  sx={{
+                    "& .MuiListItemText-primary": {
+                      color: isActive ? "#d68240" : "#fff",
+                      fontWeight: isActive ? 600 : 400,
+                      textTransform: "capitalize",
+                    },
+                  }}
+                />
+              </ListItem>
+            );
+          })}
+        </List>
+      </Drawer>
+    </>
   );
 };
 

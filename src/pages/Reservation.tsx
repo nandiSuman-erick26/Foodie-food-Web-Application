@@ -29,7 +29,7 @@ const Reservation = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          padding:5
+          padding: 5,
         }}
       >
         <Box
@@ -38,18 +38,19 @@ const Reservation = () => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            width: "40%",
-            padding: 5,
-            gap: 4,
+            width: { xs: "100%", sm: "95%", md: "85%", lg: "75%" },
+            padding: { xs: 3, sm: 4, md: 5 },
+            gap: { xs: 2, sm: 3, md: 4 },
           }}
         >
           <Typography
             variant="h4"
             sx={{
               color: "#fff",
-              fontSize: 28,
+              fontSize: { xs: 22, sm: 24, md: 28 },
               fontWeight: 600,
               textTransform: "capitalize",
+              textAlign: "center",
             }}
           >
             Online Reservation
@@ -68,12 +69,17 @@ const Reservation = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: 5,
+            gap: { xs: 4, md: 6, lg: 10 },
+            flexDirection: { xs: "column", md: "row" },
+            width: "100%",
+            maxWidth: 1400,
+            padding: { xs: 2, sm: 4, md: 6 },
           }}
         >
           <Box
             sx={{
-              width: 400,
+              width: { xs: "100%", md: 400 },
+              maxWidth: 500,
             }}
           >
             <img
@@ -87,7 +93,7 @@ const Reservation = () => {
             />
           </Box>
           <Box
-            sx={{ width: 380 }}
+            sx={{ width: { xs: "100%", md: 380 }, maxWidth: 500 }}
             component="form"
             onSubmit={onSubmit}
           >
@@ -196,68 +202,74 @@ const Reservation = () => {
                 }}
               />
             </Box>
-             <Box sx={{ display: "flex", gap: 2 }}>
-                          <Box>
-                            <Typography sx={{ color: "#fff", fontWeight: 600, p: 1 }}>
-                              Date:
-                            </Typography>
-                            <TextField
-                              slotProps={{
-                                input: {
-                                  startAdornment: (
-                                    <InputAdornment position="start">
-                                      <CalendarDays size={16} color="#d68240" />
-                                    </InputAdornment>
-                                  ),
-                                },
-                              }}
-                              variant="outlined"
-                              fullWidth
-                              size="small"
-                              type="date"
-                              sx={{
-                                "& .MuiOutlinedInput-root": {
-                                  borderRadius: 3,
-                                  backgroundColor: "#102a29ff",
-                                  color: "#888888ff",
-                                },
-                              }}
-                            />
-                          </Box>
-                          <Box>
-                            <Typography sx={{ color: "#fff", fontWeight: 600, p: 1 }}>
-                              Time:
-                            </Typography>
-                            <TextField
-                              slotProps={{
-                                input: {
-                                  startAdornment: (
-                                    <InputAdornment position="start">
-                                      <Timer size={16} color="#d68240" />
-                                    </InputAdornment>
-                                  ),
-                                },
-                              }}
-                              variant="outlined"
-                              fullWidth
-                              size="small"
-                              type="time"
-                              sx={{
-                                "& .MuiOutlinedInput-root": {
-                                  borderRadius: 3,
-                                  backgroundColor: "#102a29ff",
-                                  color: "#888888ff",
-                                },
-                              }}
-                            />
-                          </Box>
-                        </Box>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                flexDirection: { xs: "column", sm: "row" },
+              }}
+            >
+              <Box sx={{ flex: 1 }}>
+                <Typography sx={{ color: "#fff", fontWeight: 600, p: 1 }}>
+                  Date:
+                </Typography>
+                <TextField
+                  slotProps={{
+                    input: {
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <CalendarDays size={16} color="#d68240" />
+                        </InputAdornment>
+                      ),
+                    },
+                  }}
+                  variant="outlined"
+                  fullWidth
+                  size="small"
+                  type="date"
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: 3,
+                      backgroundColor: "#102a29ff",
+                      color: "#888888ff",
+                    },
+                  }}
+                />
+              </Box>
+              <Box sx={{ flex: 1 }}>
+                <Typography sx={{ color: "#fff", fontWeight: 600, p: 1 }}>
+                  Time:
+                </Typography>
+                <TextField
+                  slotProps={{
+                    input: {
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <Timer size={16} color="#d68240" />
+                        </InputAdornment>
+                      ),
+                    },
+                  }}
+                  variant="outlined"
+                  fullWidth
+                  size="small"
+                  type="time"
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: 3,
+                      backgroundColor: "#102a29ff",
+                      color: "#888888ff",
+                    },
+                  }}
+                />
+              </Box>
+            </Box>
             <Button
               sx={{ width: 140, bgcolor: "#d68240", p: 1, mt: 2 }}
               type="submit"
             >
               <Typography sx={{ color: "#fff", fontSize: 12 }}>
-               Book A Table
+                Book A Table
               </Typography>
             </Button>
           </Box>

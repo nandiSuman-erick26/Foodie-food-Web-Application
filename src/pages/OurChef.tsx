@@ -34,17 +34,19 @@ const OurChef = () => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            width: "60%",
-            padding: 5,
+            width: { xs: "100%", sm: "95%", md: "85%", lg: "75%" },
+            padding: { xs: 3, sm: 4, md: 5 },
+            gap: { xs: 2, sm: 3, md: 4 },
           }}
         >
           <Typography
             variant="h4"
             sx={{
               color: "#fff",
-              fontSize: 28,
+              fontSize: { xs: 22, sm: 24, md: 28 },
               fontWeight: 600,
               textTransform: "capitalize",
+              textAlign: "center",
             }}
           >
             our world class chef
@@ -62,9 +64,16 @@ const OurChef = () => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr 1fr 1fr",
-            gap: 2,
-            padding: 6,
+            gridTemplateColumns: {
+              xs: "1fr 1fr",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(4, 1fr)",
+            },
+            gap: { xs: 1, sm: 3 },
+            padding: { xs: 0.5, sm: 4, md: 4 },
+            width: "100%",
+            // maxWidth: 1400,
           }}
         >
           {chefState?.chef?.map((item, idx) => (

@@ -1,17 +1,19 @@
 // import React from 'react'
 
-import { Outlet } from "react-router-dom"
-import Navbar from "./Navbar"
-import Footer from "./Footer"
+import { Outlet, ScrollRestoration } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { Box } from "@mui/material";
 
 const Wrapper = () => {
   return (
-    <>
-    <Navbar/>
-    <Outlet/>
-    <Footer/>
-    </>
-  )
-}
+    <Box sx={{ width: "100%", overflowX: "hidden", position: "relative" }}>
+      <Navbar />
+      <ScrollRestoration />
+      <Outlet />
+      <Footer />
+    </Box>
+  );
+};
 
-export default Wrapper
+export default Wrapper;

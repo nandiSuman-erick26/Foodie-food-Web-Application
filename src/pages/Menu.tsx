@@ -64,18 +64,19 @@ const Menu = () => {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            width: "60%",
-            padding: 5,
-            gap: 4,
+            width: { xs: "100%", sm: "95%", md: "85%", lg: "75%" },
+            padding: { xs: 3, sm: 4, md: 5 },
+            gap: { xs: 2, sm: 3, md: 4 },
           }}
         >
           <Typography
             variant="h4"
             sx={{
               color: "#fff",
-              fontSize: 28,
+              fontSize: { xs: 22, sm: 24, md: 28 },
               fontWeight: 600,
               textTransform: "capitalize",
+              textAlign: "center",
             }}
           >
             our delicious menu
@@ -88,21 +89,32 @@ const Menu = () => {
             natus suscipit similique atque aliquam ex! Accusantium vero eligendi
             placeat
           </Typography>
-          <Box sx={{ display: "flex", flexDirection: "row", gap: 1 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              gap: 1,
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
             {category_Filteration.map((category) => (
               <Box
                 key={category}
                 sx={{
                   border: "1px solid #ffffff8a",
                   borderRadius: 2,
-                  p: 1,
+                  px: { xs: 1.5, sm: 2 },
+                  py: 1,
                   color: "#fff",
+                  fontSize: { xs: 12, sm: 14 },
                   cursor: "pointer",
                   ":hover": {
                     boxShadow: "0 2px 9px #0ab0ec60",
                     border: "1px solid #d68240",
                     color: "#d68240",
                   },
+                  transition: "all 0.3s ease",
                 }}
               >
                 {category}
@@ -113,9 +125,15 @@ const Menu = () => {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr 1fr",
-            gap: 2,
-            padding: 6,
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              lg: "repeat(3, 1fr)",
+            },
+            gap: { xs: 2, sm: 3 },
+            padding: { xs: 2, sm: 4, md: 6 },
+            width: "100%",
+            maxWidth: 1400,
           }}
         >
           {productState?.product?.map((prod, idx) => (

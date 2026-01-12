@@ -50,19 +50,27 @@ const ContactUs = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: 15,
-            mt: 7,
+            gap: { xs: 6, sm: 8, md: 10, lg: 15 },
+            flexDirection: { xs: "column", sm: "row" },
+            mt: { xs: 4, sm: 7 },
+            width: "100%",
+            maxWidth: 1400,
+            px: { xs: 2, sm: 4 },
           }}
         >
           {/* //======================= get in touch  ================================= */}
-          <Box sx={{ width: 380 }} component="form" onSubmit={onSubmit}>
+          <Box
+            sx={{ width: { xs: "100%", sm: 380 }, maxWidth: 500 }}
+            component="form"
+            onSubmit={onSubmit}
+          >
             <Box sx={{ p: 1, mb: 3 }}>
               <Typography
                 sx={{
                   color: "#fff",
                   textTransform: "capitalize",
                   fontWeight: 700,
-                  fontSize: 24,
+                  fontSize: { xs: 24, sm: 26, md: 28 },
                 }}
               >
                 Get in touch
@@ -77,7 +85,13 @@ const ContactUs = () => {
                 Note: Your email address will not be published
               </Typography>
             </Box>
-            <Box sx={{ display: "flex", gap: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: { xs: 1, sm: 2 },
+                flexDirection: { xs: "column", sm: "row" },
+              }}
+            >
               <Box>
                 <Typography sx={{ color: "#fff", fontWeight: 600, p: 1 }}>
                   Your Name:
@@ -197,11 +211,12 @@ const ContactUs = () => {
           {/* //============================== address  ================================= */}
           <Box
             sx={{
-              width: 380,
+              width: { xs: "100%", sm: 380 },
+              maxWidth: 500,
               display: "flex",
               flexDirection: "column",
-              gap: 5,
-              padding: 2,
+              gap: { xs: 3, sm: 5 },
+              padding: { xs: 3, sm: 2 },
               bgcolor: "#151f23ff",
               borderRadius: 3,
             }}
@@ -357,7 +372,13 @@ const ContactUs = () => {
           </Box>
         </Box>
         {/* //================= MAP ================================ */}
-        <Box sx={{ width: "80%", padding: 6 }}>
+        <Box
+          sx={{
+            width: "100%",
+            maxWidth: 1400,
+            padding: { xs: 2, sm: 4, md: 6 },
+          }}
+        >
           <Box sx={{ width: "100%" }}>
             <MapContainer
               center={[22.5715, 88.4225]}

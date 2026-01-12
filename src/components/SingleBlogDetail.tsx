@@ -77,10 +77,12 @@ const SingleBlogDetail = () => {
       sx={{
         bgcolor: "#0e1518ff",
         display: "flex",
-        justifyContent: "center",
-        alignItems: "start",
-        flexDirection: "row",
-        gap: 20,
+        justifyContent: { xs: "center", lg: "flex-start" },
+        alignItems: { xs: "center", lg: "start" },
+        flexDirection: { xs: "column", lg: "row" },
+        gap: { xs: 3, sm: 5, lg: 10 },
+        px: { xs: 2, sm: 3, md: 4 },
+        py: { xs: 3, sm: 4 },
       }}
     >
       <Box
@@ -89,23 +91,23 @@ const SingleBlogDetail = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          mt: 7,
-          gap: 5,
+          gap: { xs: 3, sm: 4, md: 5 },
+          width: "100%",
+          maxWidth: { xs: "100%", lg: 600 },
         }}
       >
         <Box
           sx={{
-            width: 500,
+            width: "100%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            gap: 3,
-            mt: 7,
+            gap: { xs: 2, sm: 3 },
           }}
         >
           <Box
             sx={{
-              width: 500,
+              width: "100%",
             }}
           >
             <img
@@ -121,9 +123,10 @@ const SingleBlogDetail = () => {
           <Box
             sx={{
               display: "flex",
-              flexDirection: "row",
+              flexDirection: { xs: "column", sm: "row" },
               py: 2,
-              gap: 3,
+              gap: { xs: 1, sm: 2, md: 3 },
+              flexWrap: "wrap",
             }}
           >
             <Box
@@ -195,7 +198,7 @@ const SingleBlogDetail = () => {
                 color: "#fff",
                 textTransform: "capitalize",
                 fontWeight: 600,
-                fontSize: 22,
+                fontSize: { xs: 18, sm: 20, md: 22 },
               }}
             >
               {blogId?.titel}
@@ -213,7 +216,7 @@ const SingleBlogDetail = () => {
               sx={{
                 color: "#808080",
                 textTransform: "capitalize",
-                fontSize: 12,
+                fontSize: { xs: 11, sm: 12 },
               }}
             >
               {blogId?.description}
@@ -261,21 +264,28 @@ const SingleBlogDetail = () => {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            width: "100%",
+          }}
+        >
           <Typography
             variant="h4"
             sx={{
               color: "#fff",
               textTransform: "capitalize",
               fontWeight: 600,
-              fontSize: 22,
+              fontSize: { xs: 18, sm: 20, md: 22 },
             }}
           >
             comments(03)
           </Typography>
           <Box
             sx={{
-              width: 500,
+              width: "100%",
               display: "flex",
               flexDirection: "column",
               gap: 2,
@@ -312,7 +322,7 @@ const SingleBlogDetail = () => {
 
           <Box
             sx={{
-              width: 450,
+              width: "100%",
               display: "flex",
               flexDirection: "column",
               gap: 2,
@@ -342,7 +352,13 @@ const SingleBlogDetail = () => {
                 Note: Your email address will not be published
               </Typography>
             </Box>
-            <Box sx={{ display: "flex", gap: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                gap: 2,
+              }}
+            >
               <Box>
                 <Typography sx={{ color: "#fff", fontWeight: 600, p: 1 }}>
                   Your Name:
@@ -463,21 +479,22 @@ const SingleBlogDetail = () => {
       </Box>
       <Box
         sx={{
-          width: 400,
+          width: "100%",
+          maxWidth: { xs: "100%", lg: 350 },
           display: "flex",
           justifyContent: "center",
-          // alignItems: "center",
+          alignItems: "center",
           flexDirection: "column",
-          mt: 14,
-          gap: 5,
+          gap: { xs: 3, sm: 4, md: 5 },
         }}
       >
         <Box
           sx={{
-            width: 280,
+            width: "100%",
+            maxWidth: 280,
             border: "2px solid #d68240",
             borderRadius: 3,
-            p: 3,
+            p: { xs: 2, sm: 3 },
           }}
         >
           <Typography
@@ -516,7 +533,8 @@ const SingleBlogDetail = () => {
           </Typography>
           <Box
             sx={{
-              width: 320,
+              width: "100%",
+              maxWidth: 320,
               display: "flex",
               flexDirection: "column",
               gap: 2,
@@ -572,7 +590,15 @@ const SingleBlogDetail = () => {
           >
             product tags
           </Typography>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, width: 300 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 2,
+              width: "100%",
+              maxWidth: 300,
+            }}
+          >
             {[
               "Palak Paneer",
               "Pau Bhaji",
@@ -605,7 +631,8 @@ const SingleBlogDetail = () => {
         </Box>
         <Box
           sx={{
-            width: 360,
+            width: "100%",
+            maxWidth: 360,
           }}
         >
           <img
