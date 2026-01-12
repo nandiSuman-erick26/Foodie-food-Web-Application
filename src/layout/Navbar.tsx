@@ -65,7 +65,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       logoutUser();
-      // navigate("/");
+      navigate("/");
     } catch (error) {
       console.error("Logout failed:", error);
       toast.error("Logout failed");
