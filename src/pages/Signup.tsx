@@ -95,53 +95,6 @@ const Signup = ({
     setPreviewImage(null);
     reset();
     onClose();
-    // setLoading(true);
-    // try {
-    //   const user = await account.create(
-    //     ID.unique(),
-    //     data?.email,
-    //     data?.password
-    //   );
-    //   console.log("registerd user data:", user);
-    //   let imageUrl = "";
-    //   if (data?.image) {
-    //     const uploadImage = await bucket.createFile(
-    //       import.meta.env.VITE_APPWRITE_IMAGE_BUCKET_ID,
-    //       ID.unique(),
-    //       data?.image
-    //     );
-    //     console.log("Uploaded-image:", uploadImage);
-
-    //     imageUrl = bucket.getFileView(
-    //       import.meta.env.VITE_APPWRITE_IMAGE_BUCKET_ID,
-    //       uploadImage?.$id
-    //     );
-    //     console.log("image-url", imageUrl);
-    //   }
-
-    //   const createDatabaseTable = await DB.createRow(
-    //     import.meta.env.VITE_APPWRITE_DATABASE_ID,
-    //     "foodie_user_detais",
-    //     user.$id,
-    //     {
-    //       fullname: data?.fullname,
-    //       password: data?.password,
-    //       phone: data?.phone,
-    //       email: data?.email,
-    //       role: data?.role,
-    //       image: imageUrl,
-    //     }
-    //   );
-    //   console.log("tableHasCreated:", createDatabaseTable);
-    //   toast.success("User Added Successfully");
-    // } catch (error) {
-    //   console.log(error);
-    // } finally {
-    //   setLoading(false);
-    //   setPreviewImage(null);
-    //   reset();
-    //   onClose()
-    // }
   };
   console.log("authstate error", authState?.error);
 

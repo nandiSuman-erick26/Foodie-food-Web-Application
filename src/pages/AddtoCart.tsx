@@ -673,7 +673,7 @@ const AddtoCart = () => {
           </Box>
         </Box>
         <Box>
-          <Typography>You might also like</Typography>
+          <Typography></Typography>
           <Box></Box>
         </Box>
       </Box>

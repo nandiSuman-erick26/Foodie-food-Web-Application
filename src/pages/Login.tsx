@@ -112,7 +112,7 @@ const Login = ({
               cursor: "pointer",
               position: "absolute",
               right: { xs: 10, sm: 15, md: "5%" },
-              top: { xs: -20, sm: 10 },
+              top: { xs: 10, sm: 10 },
               ":hover": { bgcolor: "#fd730aff", color: "#121a1d" },
               transition: "all 0.3s ease",
               p: 0.7,
